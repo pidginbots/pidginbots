@@ -1,6 +1,6 @@
 """
 PidginBots engine entry point.
-Reads config.json, hunts each product, scores leads, writes site/digest.json.
+Reads config.json, hunts each product, scores leads, writes docs/digest.json.
 Deduplicates against engine/state.json so every run surfaces fresh signals only.
 
 Run:  python3 engine/run.py
@@ -64,7 +64,7 @@ def main():
     d = digest_mod.build_digest(all_leads, products, use_gemini=use_gemini)
     payload = digest_mod.write_outputs(d, out_dir=os.path.join(BASE, "site"))
     print(digest_mod.console_summary(d))
-    print("\nWrote %d leads to site/digest.json" % payload["lead_count"])
+    print("\nWrote %d leads to docs/digest.json" % payload["lead_count"])
 
 
 if __name__ == "__main__":
