@@ -1,0 +1,12 @@
+{
+  "products": [
+    {
+      "id": "stockalert",
+      "name": "StockAlert",
+      "pitch": "StockAlert watches your shop inventory around the clock and sends you alerts before you run out of anything.",
+      "buyer": "Small business owners who sell physical goods",
+      "keywords": ["inventory app", "stock tracking", "stock alert tool"],
+      "sources": ["hn", "reddit", "google"]
+    }
+  ]
+}
