@@ -31,4 +31,5 @@ jobs:
           git config user.email "engine@pidginbots.local"
           git add docs/digest.json engine/state.json
           git commit -m "daily digest: $(date -u +%%Y-%%m-%%d)" || echo "no changes"
+          git pull --rebase origin main
           git push
