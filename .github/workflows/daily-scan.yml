@@ -33,3 +33,19 @@ jobs:
           git commit -m "daily digest: $(date -u +%Y-%m-%d)" || echo "no changes"
           git pull --rebase origin main
           git push
+
+  deploy-surge:
+    needs: hunt
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Publish dashboard to surge.sh
+        env:
+          SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+        run: |
+          npm install -g surge
+          surge ./docs --domain pidginbots.surge.sh
